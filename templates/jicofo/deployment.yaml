@@ -58,6 +58,13 @@ spec:
             {{- toYaml .Values.jicofo.securityContext | nindent 12 }}
           image: "{{ .Values.jicofo.image.repository }}:{{ .Values.jicofo.image.tag }}"
           imagePullPolicy: {{ pluck "pullPolicy" .Values.jicofo.image .Values.image | first }}
+          env:
+          - name: NODE_IP
+            valueFrom:
+              fieldRef:
+                fieldPath: status.hostIP
+          - name: HOST_BASE_URL
+            value: http://$(NODE_IP):10728
           envFrom:
           - secretRef:
               name: {{ include "call-nested" (list . "prosody" "prosody.fullname") }}-jicofo
