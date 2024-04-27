@@ -154,7 +154,8 @@ web:
 jicofo:
   replicaCount: 1
   image:
-    repository: jitsi/jicofo
+    repository: nishikinocurtis/jicofo
+    tag: 1.0.0
 
   ## Override the image-provided configuration files:
   #  See https://github.com/jitsi/docker-jitsi-meet/tree/master/jicofo/rootfs
@@ -190,7 +191,8 @@ jicofo:
 jvb:
   replicaCount: 1
   image:
-    repository: jitsi/jvb
+    repository: nishikinocurtis/jvb
+    tag: 1.0.0
 
   xmpp:
     user: jvb

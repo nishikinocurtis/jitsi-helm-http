@@ -50,7 +50,7 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.jvb.securityContext | nindent 12 }}
-          image: "{{ .Values.jvb.image.repository }}:{{ default .Chart.AppVersion .Values.jvb.image.tag }}"
+          image: "{{ .Values.jvb.image.repository }}:{{ .Values.jvb.image.tag }}"
           imagePullPolicy: {{ pluck "pullPolicy" .Values.jvb.image .Values.image | first }}
           envFrom:
           - secretRef:
