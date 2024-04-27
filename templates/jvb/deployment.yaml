@@ -113,6 +113,9 @@ spec:
               containerPort: 9090
               protocol: TCP
           {{- end }}
+            - name: http
+              containerPort: 8080
+              protocol: TCP
           {{- if .Values.octo.enabled }}
             - name: octo
               containerPort: 4096
